@@ -306,49 +306,90 @@ body {
 
 .hero-info-item {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    background: rgba(32, 32, 36, 0.3);
-    padding: 1.5rem 2rem;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    min-width: 280px;
 }
 
 .hero-info-item:hover {
-    background: rgba(32, 32, 36, 0.5);
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-info-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .hero-info-item i {
-    color: var(--primary);
-    font-size: 2.5rem;
-    min-width: 35px;
-    text-align: center;
-}
-
-.hero-info-content {
-    display: flex;
-    flex-direction: column;
+    font-size: 2.4rem;
+    background: linear-gradient(45deg, var(--primary), var(--primary-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
 }
 
 .hero-info-label {
-    color: var(--text);
     font-size: 1.4rem;
+    background: linear-gradient(45deg, var(--primary), var(--primary-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 0.3rem;
-    opacity: 0.7;
+    font-weight: 500;
 }
 
 .hero-info-text {
-    color: var(--title);
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-size: 2.6rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--title), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(130, 87, 230, 0.3);
+    margin: 0.2rem 0;
+    animation: glow 2s infinite;
 }
 
 .hero-info-subtext {
-    color: var(--text);
     font-size: 1.4rem;
-    margin-top: 0.3rem;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.hero-details {
+    display: flex;
+    gap: 2rem;
+    margin: 3rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(130, 87, 230, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(130, 87, 230, 0.5);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
 }
 
 @media (max-width: 768px) {
